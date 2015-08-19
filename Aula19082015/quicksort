@@ -1,0 +1,74 @@
+Dividir e conquistar
+
+Desmembrar o problema original em vários subproblemas
+semelhantes, resolver os subproblemas (executando o mesmo
+processo recursivamente) e combinar as soluções.
+
+quicksort
+
+void quicksort(int *a,int p, int r){
+    int q;//O(1)
+    if(p<r){
+        q = particao(a,p,r); //O(n)
+        quicksort(a,p,q); //O(n)
+        quicksort(a,q+1,r);//O(n)
+    }
+}
+
+int particao(int *v, int e, int d){
+    int pivo, j, aux;//O(1)
+    pivo = e; // Geralmente essa não é a melhor escolha para o pivô.//O(1)
+    for (j = e + 1; j <= d; ++j){
+          if (v[j] < v[e]){//O(1)               |
+              ++pivo;//O(1)                     |  O(n)
+              swap(&v[pivo], &v[j]);//O(1)      |
+          }
+    }
+    swap(&v[e], &v[pivo]);
+    return pivo;
+}
+
+
+
+analisando quicksort
+
+t(n) = 2t(n/2) + O(n)   |  O(nlogn) -> melhor caso
+t(1) = O(1)             |
+
+
+t(n)=t(n-1) + n         | O(n²) -> pior caso
+t(1) = 1                |
+
+
+t(4) = t(3) + 4
+t(3) = t(2) + 3
+t(2) = t(1) + 2
+        |-> 1
+        
+
+
+t(4) = 4+3+2+1
+t(4) = 1+2+3+4
+
+t(n) = t(n-1) + n
+t(n-1) = t(n-2) + n-1
+t(n-2) = t(n-3)+ n-2
+.......
+.....
+.....
+t(2) = t(1) +2
+        |-> 1
+        
+        
+
+t(n) = n+(n-1)+(n-2)+......+ 2 + 1
+
+
+t(n) = somatorio i, de i variando de 1 ate n,
+t(n) = n(n+1)/2  => O(n²)
+
+
+o consumo de tempo(melhor caso) do Quicksort é O(nlogn)
+o consumo de tempo(pior caso) do Quicksort é O(n²)
+complexidade de espaço melhor caso: O(log n)
+complexidade de espaço melhor caso: O(n)
