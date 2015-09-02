@@ -4,6 +4,9 @@ do arranjo que armazena o valor do nó. A árvore esta completamente preenchida 
 os níveis, exceto talvez no nível mais baixo, que é preenchido a partir da esquerda ate
 certo ponto.
 
+tempo heapsort: linearmente.
+
+
 Árvore:
 
 
@@ -79,3 +82,16 @@ de heap máximo
  
  
  
+Subárvore a esquerda:
+
+int esquerda(int i){
+  return(2*i + 1);
+}
+
+
+int direita(int i){
+  return(2*i + 2);
+}
+
+
+
