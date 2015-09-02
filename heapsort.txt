@@ -1,0 +1,81 @@
+Estrutura de Dados heap(binário) é um objeto arranjo que pode ser visto como 
+uma árvore binária praticamente completa, cada nó da árvore corresponde a um elemento
+do arranjo que armazena o valor do nó. A árvore esta completamente preenchida em todos
+os níveis, exceto talvez no nível mais baixo, que é preenchido a partir da esquerda ate
+certo ponto.
+
+Árvore:
+
+
+              16
+          /       \
+        14          10
+      /   \       /     \
+    8       7   9         3 
+  /  \    /
+2     4 1
+
+
+O numero dentro do círculo em cada nó na árvore é o valor armazenado nesse nó. O Número 
+aceima de um nó é o índice correspondente no arranjo. Acima e abaixo do arranjo encontramos linhas
+mostrando relacionamentos pai-filho, os pais estão sempre a esquerda do seus filhos. A árvore 
+tem altura três, o nó indice 4(com o valor 8) tem altura 1
+
+
+parent(i)
+return i/2
+
+left(i)
+return 2i
+
+right(i)
+return 2i+1
+
+
+
+Existem dois tipos de heaps binários:
+Heaps: máximos e mínimos, em ambos os tipos, os valores dos nós satisfazem a uma propriedade
+heap, cujos detalhes específicos dependem do tipo de heap. em um heap máximo, a propriedade 
+de heapmáximo é  que, para todo nó i diferente da raiz
+[
+A[parent(i)] >= A[i]
+
+isto é, o valor de um nó é no máximo o valor de seu pai. Desse modo, o maior elemento
+em um heap máximo é armazenado na raiz, e a subárvore que tem raiz em um nó contém valores
+menores que o próprio nó. Um heap mínimo é organizado de modo oposto, a propridade heap
+mínimo é que, para todo nó i diferente da raiz,
+
+A[parente(i)] <= A[i]
+
+o menor elemento de um heap mínimo esta na raiz
+
+
+
+Um heap de n elementos é baseado em uma árvore binaria completa, sua altura é O(lg n).
+
+ - o procedimento MAX-HEAPIFY, executando no tempo O(lg n), é a chave para manter a propriedade 
+de heap máximo
+
+ - o procedimento BUILD-MAX-HEAP, executando em tempo linear, produz um heap a partir de um 
+ arranjo de entrada não ordenado
+ 
+ - o procedimento HEAPSORT, executando no tempo O(n lg n), ordena um arranjo localmente.
+ 
+ - os procedimentos MAX-HEAP-INSERT, HEAP-EXTRACT-MAX,HEAP-INCREASE-KEY e HEAP-MAXIMUM, executando
+ no tempo O(lg n), permitem que a estrutura de dados heap seja utilizada como uma fila de prioridades.
+ 
+ 
+ 
+ 
+ tempo MAX-HEAPIFY => T(n) <= T(2n/3)+O(1)
+ 
+ solução para recorrencia => T(n) = O(lg n)
+ 
+ 
+ 
+ cada chamada MAX-HEAPIFY custa o tempo O(lg n), e existem O(n) dessa chamadas,
+ desse modo, o tempo de execução é O(n lg n), esse limite superior, embora correto, não 
+ é assintoticamente restrito.
+ 
+ 
+ 
